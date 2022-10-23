@@ -1,0 +1,18 @@
+#Code by deewerd
+
+import PIL #библиотека для работы с изображениями
+from PIL import Image #импорт модуля изображения библиотеки PIL
+from tkinter.filedialog import * #библиотека tkinter для выбора файлов
+
+
+#импортируем необходимые библиотеки и их модули
+
+
+file_path = askopenfilename() #объявляем переменную файла
+img = PIL.Image.open(file_path) #функция для возврата файлов
+shirina, visota = img.size #присваиваем значения ширины и высоты
+
+img = img.resize((shirina, visota) , PIL.Image.ANTIALIAS) #объявляем переменную img с параметрами ширины и высоты
+save_path = askopenfilename() #сохраненный файл 
+
+img.save(save_path+"_compressed.JPG") #сохраненный файл сохраняем в ту же папку с измененным именем
